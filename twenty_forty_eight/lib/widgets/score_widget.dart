@@ -12,18 +12,36 @@ class ScoreWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        _buildScoreBox('Score', currentScore),
-        _buildScoreBox('Best', bestScore),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Game name on top-left
+          const Text(
+            '2048',
+            style: TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF776E65),
+            ),
+          ),
+
+          // Score boxes on top-right
+          Row(
+            children: [
+              _buildScoreBox('Score', currentScore),
+              const SizedBox(width: 8),
+              _buildScoreBox('Best', bestScore),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildScoreBox(String label, int value) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 0, vertical: 16),
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
       decoration: BoxDecoration(
         color: const Color(0xFFBBADA0),
