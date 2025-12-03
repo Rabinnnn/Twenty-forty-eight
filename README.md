@@ -57,7 +57,7 @@ Quit — exit the game / return to the launcher.
 * Pre-game instructions: The app shows a short instructions overlay before first play.
 
 ## Project structure
-
+```bash
 lib/
 |- main.dart
 |- models/
@@ -71,4 +71,4 @@ lib/
 |  |- controls_widget.dart
 |  |- score_widget.dart
 |  |- tile_widget.dart
-|
+```
