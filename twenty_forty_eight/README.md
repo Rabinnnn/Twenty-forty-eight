@@ -1,23 +1,74 @@
 # Twenty-forty-eight
-It is April 2014, and the popular game "2048" has not yet been released. Your task is to implement the game in flutter before the official release. The objective of the game is to slide numbered tiles on a grid to combine them and create a tile with the number 2048.
+A Flutter implementation of the classic sliding-tile game (the objective: make a 2048 tile).
+Built as if it were April 2014 — reproduce the original gameplay with smooth animations, responsive UI, and best-practice code structure.
 
+## Features
+- 4×4 grid with initial 3–4 tiles placed randomly (values 2 or 4).
+- Tile merging rules: identical tiles combine into a tile with twice the value and increase score.
 
+- Smooth animations for tile movement and merges.
 
-## Instructions
-To complete this exercise, you will need to do the following:
+- Responsive layout for phones and tablets.
 
-Create the 4x4 grid and fill it with tiles valued at either 2 or 4.
-The game must start with 3-4 tiles randomly placed on the board.
-Implement the ability for players to swipe the tiles in any of the four directions and have them move as far as possible in the chosen direction.
-Use animation to smoothly move the tiles. You are free to choose the colors for the tiles.
-If two tiles with the same value collide, they should merge into one tile with twice the value, and the score must be updated accordingly.
-After each move, a new tile must appear randomly in an empty slot on the board.
-The game ends when no legal moves are possible (i.e., the grid is full, and no adjacent tiles have the same value).
-You must add a restart button so that the player can restart the game and try to achieve a higher score. Also add a quit button that will stop the game.
+- Live display of current score and best score during gameplay.
 
-## Must include: 
-* Include functionality to track and display the current and best scores live during gameplay.
-* keep score during gameplay and Update the overall best score when the game is over.
-* before the game starts, show brief instructions on how to play. 
-Remember to follow best practices for coding and game development, and be sure to document your code and any decisions made during the development process.
+- Best score persists across sessions (uses shared_preferences).
 
+- Pre-game instructions screen explaining how to play.
+
+- Restart and Quit buttons (Quit returns to the launcher/exit point).
+
+- Clean, modular code following Flutter best practices and a testable architecture.
+
+## How to run
+* Clone the repo and navigate to the directory
+```bash
+git clone https://github.com/Rabinnnn/Twenty-forty-eight.git
+cd Twenty-forty-eight
+```
+* Run on device/emulator
+```bash
+flutter run
+```
+* To build release for android
+```bash
+flutter build apk
+```
+
+## Game rules & controls
+* Objective: Merge tiles until you create a 2048 tile.
+
+* Start: Game begins with 3–4 tiles placed randomly; each tile is 2 or 4.
+
+* Swipe: Swipe Up / Down / Left / Right to move tiles. Tiles slide as far as possible.
+
+* Merge: When two tiles of the same value collide they merge into one tile of value ×2; that value is added to your current score.
+
+* New tile: After each successful move, a new tile (2 or 4) appears in a random empty cell.
+
+* Game over: No legal moves remain (grid full & no adjacent equal tiles).
+
+* Controls:
+
+Restart — reset board and score.
+
+Quit — exit the game / return to the launcher.
+
+* Pre-game instructions: The app shows a short instructions overlay before first play.
+
+## Project structure
+
+lib/
+|- main.dart
+|- models/
+|  |- game_state.dart
+|  |- tile.dart
+|- screens/
+|  |- game_screen.dart
+|  |- instructions_screen.dart
+|- widgets/
+|  |- board_widget.dart
+|  |- controls_widget.dart
+|  |- score_widget.dart
+|  |- tile_widget.dart
+|
